@@ -1,0 +1,35 @@
+{% extends 'backend/base.html' %}
+{% block content %}
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-lg-6 my-5 py-5 offset-lg-3">
+            <div class="card my-5">
+                <div class="card-header">CodeBreakers</div>
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3 class="text-center title-2">Add Tag</h3>
+                    </div>
+                    <hr>
+                    <form action="{% url 'site:add_tag'%}" method="post" novalidate="novalidate">
+                       {% csrf_token %}
+                        <div class="form-group">
+                            <label for="tag" class="control-label mb-1 mt-4 ">Add Tag:</label>
+                            <input id="tag" name="tag" type="text" class="form-control py-3"
+                                   aria-required="true" aria-invalid="false"
+                                   placeholder=" example: HTML, CSS, React etc">
+                        </div>
+                        <div class="my-4">
+                            <button id="tag-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                <span id="tag-button-amount">Submit</span>
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            {% endblock %}

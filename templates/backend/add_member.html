@@ -1,0 +1,76 @@
+{% extends 'backend/base.html' %}
+{% block content %}
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-lg-6 my-5 py-5 offset-lg-3">
+            <div class="card my-5">
+                <div class="card-header">CodeBreakers</div>
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3 class="text-center title-2">Add Member</h3>
+                    </div>
+                    <hr>
+                    <form action="{% url 'site:add_member'%}" method="post" novalidate="novalidate" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1 mt-2">Full Name:</label>
+                            <input id="cc-payment" name="fullname" type="text" class="form-control py-2"
+                                   aria-required="true" aria-invalid="false"
+                                   placeholder=" Full Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="control-label mb-1 mt-2">Address:</label>
+                            <input id="address" name="address" type="text" class="form-control py-2"
+                                   aria-required="true" aria-invalid="false"
+                                   placeholder="Address">
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber" class="control-label mb-1 mt-2 ">Phone Number:</label>
+                            <input id="phoneNumber" name="phone_number" type="text" class="form-control py-2"
+                                   aria-required="true" aria-invalid="false"
+                                   placeholder="Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="control-label mb-1 mt-2 ">Email:</label>
+                            <input id="email" name="email" type="text" class="form-control py-2"
+                                   aria-required="true" aria-invalid="false"
+                                   placeholder="Email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description" class="control-label mb-1 mt-2 ">Description:</label>
+                            <textarea name="description" id="description" rows="2"
+                                      placeholder="Example: Python, Java, PHP etc"
+                                      class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="position" class="control-label mb-1 mt-2 ">Position:</label>
+                            <input name="position" id="position" rows="2"
+                                   placeholder="Default position: Member"
+                                   class="form-control">
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-4">
+                                <label for="uploadImage" class=" form-control-label">Upload Image</label>
+                            </div>
+                            <div class="col-12 col-md-8">
+                                <input type="file" id="uploadImage" name="image" class="form-control-file">
+                            </div>
+                        </div>
+
+                        <div class="my-4">
+                            <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                <span id="payment-button-amount">Submit</span>
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
